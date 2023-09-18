@@ -17,16 +17,20 @@ async function criaVideos(titulo, descricao, url, imagem) {
             url: url,
             imagem: imagem
         })
-    });
+    })
 
     const conexaoConvertida = conexao.json();
 
-    return conexaoConvertida;
-}
+    if (!conexao.ok) {
+        throw new Error ('Falha ao carregar o video, tente novamente!')
+} 
+    return conexaoConvertida; 
+};
 
 async function pesquisaVideo (termoDePesquisra) {
     const conexao = await fetch(`http://localhost:3000/videos?q=${termoDePesquisra}`);
     const conexaoConvertida = await conexao.json();
+
     return conexaoConvertida
 }
 

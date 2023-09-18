@@ -14,11 +14,13 @@ async function buscaVideo (evento) {
         lista.removeChild (lista.firstChild)
     }
 
-    buscar.forEach(elemento => { lista.appendChild(
-        constroiCard (elemento.titulo, elemento.descricao, elemento.url, elemento.imagem)
-    )
-        
-    });
+   
+    buscar.forEach(elemento =>  lista.appendChild(
+        constroiCard (elemento.titulo, elemento.descricao, elemento.url, elemento.imagem)))
+    
+        if (buscar.length == 0) {
+        lista.innerHTML = `<h2 class="mensagem__erro">video não encontrado</h2>`
+    }
 }
 
 const botaoPesquisar = document.querySelector('[data-botao-pesquisar]')

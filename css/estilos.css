@@ -99,6 +99,11 @@ body {
     justify-content: center;
 }
 
+.mensagem__erro {
+    color: var(--azul-escuro);
+    font-size:1.8em;
+}
+
 @media(min-width: 834px) {
 
     body {
